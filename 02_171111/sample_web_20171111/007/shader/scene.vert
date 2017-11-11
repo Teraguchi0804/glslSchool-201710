@@ -6,22 +6,29 @@ varying   vec4  vColor;    // フラグメントシェーダへ送る色
 void main(){
     /* パターンその１ */
     // 時間の経過と座標からサインを求める（サイン波）
-    float s = sin(position.x + time);
+    // 頂点ごとに実行されるから、xの値は毎回違う
+    // 時間はもちろん時間の経過とともに変化する
+    // x は -1.0~1.0
+    // １フレーム目だったら？
+//    float s = sin(position.x + time);
     // 求めたサインを頂点の Y 座標にアタッチしてみる
-    vec3 p = vec3(position.x, s, position.z);
+//    vec3 p = vec3(position.x, s, position.z);
 
     /* パターンその２ */
     // 座標を X だけでなく Z にも依存するようにしてみる
-    // float s = sin(position.x + time);
-    // float c = cos(position.z + time);
-    // vec3 p = vec3(position.x, s + c, position.z);
+    // sin と cos は常に-1.0 ~ 1.0
+//     float s = sin(position.x + time);
+//     float c = cos(position.z + time);
+//     vec3 p = vec3(position.x, s + c, position.z);
 
     /* パターンその３ */
     // 原点からの距離を測ってそれを元にサインコサインを求める
-    // float dist = length(position.xz);
-    // float s = sin(dist + time);
-    // float c = cos(dist + time);
-    // vec3 p = vec3(position.x, s + c, position.z);
+     float dist = length(position.xz * 10.0);
+     float s = sin(dist + time) * 0.2;
+     float c = cos(dist + time) * 0.2;
+//     float s = sin(dist - time) * 0.2;
+//     float c = cos(dist - time) * 0.2;
+     vec3 p = vec3(position.x, s + c, position.z);
 
     vColor = color;
     gl_Position = mvpMatrix * vec4(p, 1.0);

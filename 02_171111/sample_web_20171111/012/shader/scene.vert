@@ -9,6 +9,8 @@ void main(){
     // 時間の経過から回転行列を生成する
     float s = sin(time * 2.0 * position.z - PI);
     float c = cos(time * 2.0 * position.z - PI);
+
+    // 二次元の回転行列
     mat2 m = mat2(c, s, -s, c);
 
     // 回転行列を使って頂点を回転してから移動する

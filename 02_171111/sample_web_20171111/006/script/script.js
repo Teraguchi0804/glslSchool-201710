@@ -82,6 +82,7 @@
             let half = width / 2.0;       // 幅の半分（上下左右に線対称に展開するため）
             let interval = 0.1;           // 頂点同士の間隔
             let count = width / interval; // 幅と間隔からループカウント数を求める
+            //
             // ループで一気に頂点を定義する
             for(let i = 0; i <= count; ++i){
                 // 横位置
@@ -140,6 +141,7 @@
             let cameraPosition    = [0.0, 0.0, 3.0]; // カメラの座標
             let centerPoint       = [0.0, 0.0, 0.0]; // カメラの注視点
             let cameraUpDirection = [0.0, 1.0, 0.0]; // カメラの上方向
+            // filed of view (y) 角度
             let fovy   = 60 * camera.scale;          // カメラの視野角
             let aspect = canvasWidth / canvasHeight; // カメラのアスペクト比
             let near   = 0.1;                        // 最近距離クリップ面

@@ -6,7 +6,7 @@ varying   vec4  vColor;    // フラグメントシェーダへ送る色
 varying   vec2  vTexCoord; // フラグメントシェーダへ送るテクスチャ座標 @@@
 void main(){
     vColor = color;
-    vTexCoord = texCoord;
+    vTexCoord = texCoord; // JSから送られてきたテクスチャ座標をそのまま使いたいのでtexCoordをvarying変数のvTexCoordに代入
     gl_Position = mvpMatrix * vec4(position, 1.0);
     gl_PointSize = 8.0;
 }

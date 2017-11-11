@@ -85,7 +85,7 @@
         // 頂点座標を定義する @@@
         let position = [];
         let color = [];
-        let texCoord = [];
+        let texCoord = []; // テクスチャ座標（0.0 ~ 1.0）
         {
             let width = 5.0;              // 全体の幅
             let half = width / 2.0;       // 幅の半分（上下左右に線対称に展開するため）

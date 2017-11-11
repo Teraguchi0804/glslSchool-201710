@@ -6,7 +6,8 @@ uniform   float time;      // 時間の経過 @@@
 varying   vec4  vColor;    // フラグメントシェーダへ送る色
 varying   vec2  vTexCoord; // フラグメントシェーダへ送るテクスチャ座標
 void main(){
-    // 時間の経過と sin を利用して係数を作る @@@
+    // 時間の経過と sin を利用して係数を作る @@@　
+    // absは絶対値（マイナスも強制的にプラスにする）
     float s = abs(sin(time));
 
     // 係数を頂点のアルファに掛ける
