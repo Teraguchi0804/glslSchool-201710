@@ -193,7 +193,7 @@
             mat.rotate(mMatrix, nowTime * 0.1, [0.0, 1.0, 0.0], mMatrix);
             mat.multiply(vpMatrix, mMatrix, mvpMatrix);
             gl[scenePrg.uniType[0]](scenePrg.uniLocation[0], false, mvpMatrix);
-            gl.drawElements(gl.TRIANGLES, index.length, gl.UNSIGNED_SHORT, 0);
+            // gl.drawElements(gl.TRIANGLES, index.length, gl.UNSIGNED_SHORT, 0);
             // フレームバッファに対する描画はここまで -------------------------
 
             // フレームバッファに焼いた描画結果を使ってポストプロセスを描画

@@ -7,5 +7,7 @@ void main(){
     gl_Position = vec4(position, 1.0);
 
     // テクスチャ座標は position から生成してしまう
+    // psotion = -1.0 ~ 1.0
+    // textCoord = 0.0 ~ 1.0
     vTexCoord = (position.xy + 1.0) * 0.5;
 }

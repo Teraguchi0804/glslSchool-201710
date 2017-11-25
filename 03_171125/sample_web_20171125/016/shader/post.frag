@@ -55,7 +55,8 @@ void main(){
     p.x *= aspect;
 
     // p の長さを測り画面中心からの距離を求めて、中心ほど大きな値になる状態を作る
-    float len = min(0.5 / length(p), 1.0);
+//    float len = min(0.5 / length(p), 1.0);
+    float len = 1.0;
 
     // 赤色ノイズ模様を作る
     vec2 rVector = gl_FragCoord.st - vec2(time * 5.0, time * 500.0);

@@ -13,6 +13,7 @@ float rnd(vec2 n){
 
 void main(){
     // スクリーン上の座標（0.0 ~ resolution）を正規化（-1.0 ~ 1.0）する @@@
+    // gl_FragCoord == スクリーン上のピクセル位置 0.0 ~ スクリーンの横幅ピクセル数 => 0.0 ~ 1.0
     vec2 p = (gl_FragCoord.st / resolution) * 2.0 - 1.0;
 
     // フレームバッファの描画結果をテクスチャから読み出す
@@ -22,14 +23,16 @@ void main(){
     float dest = (samplerColor.r + samplerColor.g + samplerColor.b) / 3.0;
 
     // ビネット（四隅が暗くなるような演出） @@@
+    // length == ベクトルの長さを測る
     float vignette = 1.5 - length(p);
     dest *= vignette;
 
     // ホワイトノイズを生成 @@@
     float noise = rnd(gl_FragCoord.st + mod(time, 10.0));
-    dest *= noise * 0.5 + 0.5;
+    dest *= noise * 0.5 + 0.5; // ノイズの値をマイルド化
 
     // ブラウン管モニタのような走査線 @@@
+    // abs == 絶対値を取る（全部プラスにする）
     float scanLine = abs(sin(p.y * 200.0 + time * 5.0)) * 0.5 + 0.5;
     dest *= scanLine;
 
