@@ -7,6 +7,8 @@ const   float     focus = 0.5;   // フォーカスする深度
 
 void main(){
     // ハイトテクスチャから色を取得し深度として扱う @@@
+    // heightTextureの色の値は0.0~1.0
+    // focusを引くことでプラスとマイナスに値を振り分けている
     float height = texture2D(heightTexture, vTexCoord).r - focus;
 
     // マウスベクトルに応じて変化するベクトルを定義 @@@

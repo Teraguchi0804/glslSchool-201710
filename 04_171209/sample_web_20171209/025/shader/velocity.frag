@@ -121,8 +121,6 @@ void main(){
     vec4 position = texture2D(positionTexture, coord);
     vec3 velocity = prevVelocity.xyz;
     if(move){
-        // vec3 mouseMove = normalize(vec3(mouse.x, mouse.y, length(mouse)));
-        // velocity = curlNoise(position.xyz) + mouseMove * 0.25;
         velocity = curlNoise(position.xyz);
     }
     gl_FragColor = vec4(normalize(velocity), 0.0);

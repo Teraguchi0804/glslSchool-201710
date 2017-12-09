@@ -11,6 +11,12 @@ void main(){
     vec2 tex = vec2(vTexCoord.s * 2.0 - 1.0, -vTexCoord.t * 2.0 + 1.0);
 
     // 極座標変換 @@@
+    // atan アークタンジェント
+    // GLSLのatanはいろんな形で引数を指定できます
+    // atan(x, y) => 角度 => ラジアンで返ります => 一周が 2PI
+    // (atan(tex.t, tex.s) + PI) / PI2 => 0 ~ 1　の範囲に正規化
+    // ひとつ目の成分が、角度
+    // ふたつ目の成分が、距離
     vec2 polar = vec2((atan(tex.t, tex.s) + PI) / PI2, length(tex));
     polar = vec2(polar.s, max(1.0 - polar.t, 0.0));
 
