@@ -37,5 +37,6 @@ void main(){
     dest *= scanLine;
 
     // 様々なポストプロセスを乗算して出力する
-    gl_FragColor = greenColor * vec4(vec3(dest), 1.0);
+//    gl_FragColor = greenColor * vec4(vec3(dest), 1.0);
+    gl_FragColor = vec4(vec3(dest), 1.0);
 }
